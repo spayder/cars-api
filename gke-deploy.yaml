@@ -17,3 +17,20 @@ spec:
           image: gcr.io/liquid-verbena-435417-u6/cars-api:latest
           ports:
             - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gck-cars-api-service
+  namespace: hello-world-test-ns
+  labels:
+    app.kubernetes.io/managed-by: gck-cars-api-deployment
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  selector:
+    app: cars-api
+  type: LoadBalancer
