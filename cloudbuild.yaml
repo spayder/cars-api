@@ -4,4 +4,4 @@ steps:
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 images:
-  - 'gcr.io/$PROJECT_ID/cars_api'
+  - 'gcr.io/$PROJECT_ID/cars-api'
