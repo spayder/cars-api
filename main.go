@@ -25,7 +25,7 @@ func main() {
 	router.POST("cars", createCar)
 	router.DELETE("cars/:id", deleteCar)
 
-	err := router.Run("localhost:8080")
+	err := router.Run(":8080")
 	if err != nil {
 		return
 	}
