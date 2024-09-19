@@ -12,7 +12,7 @@ steps:
       - --filename=gke-deploy.yaml
       - --image=gcr.io/$PROJECT_ID/cars-api
       - --location=us-central1
-      - --cluster=gke_liquid-verbena-435417-u6_us-central1_hello-world-cluster-2
+      - --cluster=hello-world-cluster-2
       - --namespace=hello-world-test-ns
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
