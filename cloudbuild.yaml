@@ -1,7 +1,18 @@
 steps:
-  - name: docker
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/cars-api', '.']
+  # build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", -t", "gcr.io/$PROJECT_ID/cars-api", "."]
+  # push container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/cars-api"]
+  # deploy container image to gke
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+      - run
+      - --filename=gke.deploy.yaml
+      - --image=gcr.io/$PROJECT_ID/cars-api
+      - --location=us-central1
+      - --cluster=gke_liquid-verbena-435417-u6_us-central1_hello-world-cluster-2
+      - --namespace=hello-world-test-ns
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
-images:
-  - 'gcr.io/$PROJECT_ID/cars-api'
