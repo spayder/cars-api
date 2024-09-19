@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gck-cars-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cars-api
+  template:
+    metadata:
+      labels:
+        app: cars-api
+    spec:
+      containers:
+        - name: gck-cars-api
+          image: gcr.io/liquid-verbena-435417-u6/cars-api:latest
+          ports:
+            - containerPort: 8080
