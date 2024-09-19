@@ -20,6 +20,9 @@ func main() {
 	}
 
 	router := gin.Default()
+	router.GET("/", func(c *gin.Context) {
+		c.IndentedJSON(http.StatusOK, gin.H{"message": "Hello World"})
+	})
 	router.GET("cars", GetCars)
 	router.GET("cars/:id", GetCarById)
 	router.POST("cars", createCar)
