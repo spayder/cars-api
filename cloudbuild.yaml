@@ -9,7 +9,7 @@ steps:
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
-      - --filename=gke.deploy.yaml
+      - --filename=gke-deploy.yaml
       - --image=gcr.io/$PROJECT_ID/cars-api
       - --location=us-central1
       - --cluster=gke_liquid-verbena-435417-u6_us-central1_hello-world-cluster-2
