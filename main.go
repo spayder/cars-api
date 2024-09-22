@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"net/http"
 )
 
@@ -68,6 +68,6 @@ func GetCarById(c *gin.Context) {
 }
 
 func GetCars(c *gin.Context) {
-	log.Println("Called get cars endpoint")
+	log.Infoln("Get Cars endpoint has been called")
 	c.IndentedJSON(http.StatusOK, gin.H{"cars": cars})
 }
